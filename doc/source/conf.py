@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Rucio documentation build configuration file, created by
-# sphinx-quickstart on Fri Jan 16 09:09:47 2015.
+# sphinx-quickstart on Fri Jan 16 09:39:29 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.

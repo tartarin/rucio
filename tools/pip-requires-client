@@ -2,9 +2,7 @@
 
 argparse==1.2.1          # Command-line parsing library
 argcomplete==0.8.4       # Bash tab completion for argparse
-kerberos==1.1.1          # Kerberos high-level interface
 requests==2.5.1          # Python HTTP for Humans
-requests-kerberos==0.6.1 # A Kerberos authentication handler for python-requests
 #  TODO: requests-cache==0.4.8  # Persistent cache for requests library
 urllib3==1.10            # HTTP library with thread-safe connection pooling and file post support
 wsgiref==0.1.2           # WSGI (PEP 333) Reference Library

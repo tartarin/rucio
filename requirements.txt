@@ -14,9 +14,7 @@ ghp-import>=0.4.1
 argh>=0.24.1
 pathtools>=0.1.1
 argcomplete==0.8.4       # Bash tab completion for argparse
-kerberos==1.1.1          # Kerberos high-level interface
 requests==2.5.1          # Python HTTP for Humans
-requests-kerberos==0.6.1 # A Kerberos authentication handler for python-requests
 urllib3==1.10            # HTTP library with thread-safe connection pooling and file post support
 wsgiref==0.1.2           # WSGI (PEP 333) Reference Library
 dogpile==0.2.2           # Caching API

@@ -27,8 +27,7 @@ Getting the latest code
 
 Make a clone of the code from our git repository::
 
-    $ git clone https://<gerrit_username>@voatlasrucio-gerrit.cern.ch/rucio
-
+    $ git clone https://<gerrit_username>@rucio-gerrit.cern.ch/rucio
 
 
 .. Or, if you need to do an an anonymous checkout::

@@ -21,7 +21,7 @@ used credentials are authorized to use the supplied Rucio account.
 The figure below gives an example of the mapping between credentials
 and Rucio accounts:
 
-.. image:: accounts.png
+.. image:: images/accounts.png
    :height: 500px
    :width: 500px
    :scale: 80 %

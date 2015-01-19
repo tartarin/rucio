@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: rucio-clients
+Version: 0.2.10
+Summary: Rucio Client Lite Package
+Home-page: http://rucio.cern.ch/
+Author: Rucio
+Author-email: rucio-dev@cern.ch
+License: Apache License, Version 2.0
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Environment :: No Input/Output (Daemon)

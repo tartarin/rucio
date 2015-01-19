@@ -1,0 +1,75 @@
+--/
+CREATE OR REPLACE TYPE string_agg_type AS OBJECT
+    (
+      total VARCHAR2(4000),
+
+      STATIC FUNCTION
+           ODCIAggregateInitialize(sctx IN OUT string_agg_type )
+           RETURN NUMBER,
+
+      MEMBER FUNCTION
+           ODCIAggregateIterate(self IN OUT string_agg_type ,
+                                value IN VARCHAR2 )
+           RETURN NUMBER,
+
+      MEMBER FUNCTION
+           ODCIAggregateTerminate(self IN string_agg_type,
+                                  returnValue OUT  varchar2,
+                                  flags IN number)
+           RETURN NUMBER,
+
+      MEMBER FUNCTION
+           ODCIAggregateMerge(self IN OUT string_agg_type,
+                              ctx2 IN string_agg_type)
+           RETURN NUMBER
+);
+--/
+
+--/
+CREATE OR REPLACE TYPE BODY string_agg_type
+  IS
+
+  STATIC FUNCTION ODCIAggregateInitialize(sctx IN OUT string_agg_type)
+    RETURN NUMBER
+  IS
+  BEGIN
+      sctx := string_agg_type( null );
+      RETURN ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateIterate(self IN OUT string_agg_type,
+                                       value IN varchar2 )
+    RETURN NUMBER
+  IS
+  BEGIN
+      self.total := self.total || ',' || value;
+      RETURN ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateTerminate(self IN string_agg_type,
+                                         returnValue OUT varchar2,
+                                         flags IN number)
+    RETURN NUMBER
+  IS
+  BEGIN
+      returnValue := ltrim(self.total,',');
+      return ODCIConst.Success;
+  END;
+
+  MEMBER FUNCTION ODCIAggregateMerge(self IN OUT string_agg_type,
+                                     ctx2 IN string_agg_type)
+    RETURN NUMBER
+  IS
+  BEGIN
+      self.total := self.total || ctx2.total;
+      return ODCIConst.Success;
+  END;
+
+  end;
+ --/
+
+--/
+ CREATE or replace FUNCTION stragg(input VARCHAR2)
+    RETURN varchar2
+ PARALLEL_ENABLE AGGREGATE USING string_agg_type;
+  --/

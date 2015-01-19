@@ -12,11 +12,14 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
+import sys
+import os
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 # sys.path.insert(0, os.path.abspath('.'))
+sys.path = [os.path.abspath('../../lib'), os.path.abspath('../..'), os.path.abspath('../../bin')] + sys.path
 
 # -- General configuration ------------------------------------------------
 
@@ -26,7 +29,14 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = ['sphinx.ext.autodoc',
+              'sphinx.ext.coverage',
+              'sphinx.ext.doctest',
+              'sphinx.ext.ifconfig',
+              'sphinx.ext.intersphinx',
+              'sphinx.ext.pngmath',
+              'sphinx.ext.todo',
+              'sphinx.ext.viewcode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

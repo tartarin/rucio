@@ -1,0 +1,142 @@
+$def with (token, account, rucio_ui_version, content)
+<!--
+ Copyright European Organization for Nuclear Research (CERN)
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ You may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Authors:
+ - Mario Lassnig, <mario.lassnig@cern.ch>, 2014
+ - Thomas Beermann, <thomas.beermann@cern.ch>, 2014
+ - Martin Barisits, <martin.barisits@cern.ch>, 2014
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    $:token
+    $:account
+    <title>Rucio UI - $:content.title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.4.4/css/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="/static/rucio.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="//cdn.jsdelivr.net/foundation/5.4.4/js/foundation.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
+    <script src="/static/rucio.js"></script>
+    <script src="/static/base.js"></script>
+    $:content.script
+  </head>
+
+  <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <section class="top-bar-section">
+
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="/">ATLAS Rucio UI</a></h1>
+          </li>
+        </ul>
+
+        <ul class="left">
+
+          <li class="has-dropdown">
+            <a>Monitoring</a>
+            <ul class="dropdown">
+              <li><a href="/subscriptions">Subscriptions &amp; Rules</a></li>
+              <li><a href="/rse_locks">RSE Locks Monitoring</a></li>
+              <li><a href="/rse_usage">Rucio Storage Elements (RSE)</a></li>
+              <li><a>TBD: Rucio Accounts</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <a>Reports</a>
+            <ul class="dropdown">
+              <li><a href="/dumps">Dumps</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <a>Data Management</a>
+            <ul class="dropdown">
+              <li><a>TBD: Rules</a></li>
+              <li><a>TBD: Subscriptions</a></li>
+            </ul>
+          </li>
+
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <input id="searchbox" type="text" placeholder="scope OR scope:name" style="height: 1.8rem; font-size: 0.75rem;">
+              </div>
+              <div class="large-4 small-3 columns">
+                <a class="button expand" onClick="did_search(document.getElementById('searchbox').value)">Search</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="right hide-for-small">
+          <li class="has-dropdown">
+            <a>Using account: <span id="current_account">[loading]</span></a>
+            <ul id="accountselecter" class="dropdown">
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <a>Other Monitoring</a>
+            <ul class="dropdown">
+              <li><a href="http://dashb-atlas-data.cern.ch/ddm2/">DDM Dashboard</a>
+              <li><a href="http://dashb-fts-transfers.cern.ch/">FTS Dashboard</a>
+              <li><a href="https://fts3-pilot.cern.ch:8449/fts3/ftsmon/#/">FTS Monitor CERN</a>
+              <li><a href="https://www-ftsmon-test.gridpp.rl.ac.uk:8449/fts3/ftsmon/#/">FTS Monitor RAL</a>
+              <li><a href="http://bigpanda.cern.ch/">PanDA Monitor</a>
+              <li><a href="http://adc-monitoring.cern.ch/">ADC Monitoring</a>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <a><span class="help" style="color:#b2d546">Help</span></a>
+            <ul class="dropdown">
+              <li><a href="mailto:atlas-adc-ddm-support@cern.ch">ADC DDM Support Mailing List</a>
+              <li><a href="mailto:rucio-support@cern.ch">Rucio Support Mailing List</a>
+              <li><a href="mailto:rucio-dev@cern.ch">Rucio Development Mailing List</a>
+              <li><a href="https://rucio.cern.ch/">Rucio Development</a>
+            </ul>
+          </li>
+        </ul>
+
+      </section>
+    </nav>
+
+    <div class="top-subbar">
+      <div class="left" id="div-subtitle" style="padding-left: 1em;">
+        You are here: $:content.title <span id="subbar-details"></span>
+      </div>
+      <div class="right" id="div-subtitle" style="padding-right: 1em;">
+        Rucio Version: <span id="rucio_server_version">[loading]</span>
+      </div>
+    </div>
+
+    <div id="content" style="margin: 1em;">
+      $:content
+    </div>
+
+    <footer>
+      <div class="left" style="padding-left: 1em;">&copy; 2012-2014 <a href="https://cern.ch/">European Organisation for Nuclear Research (CERN)</a></div>
+      <div class="right" style="padding-right: 1em;"><script>document.write(new Date());</script></div>
+    </footer>
+
+    <script>jQuery(document).foundation();</script>
+  </body>
+</html>

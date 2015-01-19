@@ -1,0 +1,42 @@
+Application Analysts and Architects are responsible for matching requirements to application specifications. Specific activities include:
+■ Working with users, sponsors and all other stakeholders to determine their evolving needs
+■ Working with Technical Management to determine the highest level of system requirements required to meet the business requirements within budget and technology constraints
+■ Performing cost-benefit analyses to determine the most appropriate means to meet the stated requirement
+■ Developing Operational Models that will ensure optimal use of resources and the appropriate level of performance
+■ Ensuring that applications are designed to be effectively managed given the organization’s technology architecture, available skills and tools
+■ Developing and maintaining standards for application sizing, performance modelling, etc
+■
+● Transaction rates and availability for critical business transactions
+● Service Desk training
+● Recording problem resolutions into the KEDB
+● User measures of the quality of outputs as defined
+in the SLAs.
+Process metrics. Technical Management teams execute many Service Management process activities. Their ability to do so will be measured as part of the process metrics where appropriate (see section on each process for more details). Examples include:
+● Response time to events and event completion rates
+● Incident resolution times for second- and third-line
+support
+● Problem resolution statistics
+● Number of escalations and reason for those escalations
+● Number of changes implemented and backed out
+● Number of unauthorized changes detected
+● Number of releases deployed, total and successful, including ensuring adherence to the Release
+Policies of the organization
+● Security issues detected and resolved
+● Actual system utilization against Capacity Plan
+forecasts (where the team has contributed to the
+development of the plan)
+● Tracking against SIPs
+● Expenditure against budget.
+Application performance. These metrics are based on Service Design specifications and technical performance standards set by vendors and will typically be contained in OLAs or SOPs. Actual metrics will vary by application, but are likely to include:
+● Response times
+● Application availability, which is helpful for
+measuring team or application performance but is not to be confused with Service Availability – which requires the ability to measure the overall availability of the service, and may use the availability figures for a number of individual systems or components
+● Integrity of data and reporting.
+Measurement of maintenance activity, including:
+● Maintenance performed per schedule
+● Number of maintenance windows exceeded
+● Maintenance objectives achieved (number and
+percentage).
+■ Generating a set of acceptance test requirements, together with the designers, test engineers and the user, which determine that all of the high-level requirements have been met, both functional
+and with regard to manageability
+■ Input into the design of configuration data required

@@ -27,7 +27,7 @@ from rucio.common import exception
 
 def config_get(section, option):
     """Return the string value for a given option in a section"""
-    pass
+    return ""
 
 
 def config_has_section(section):

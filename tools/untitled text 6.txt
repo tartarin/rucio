@@ -1,0 +1,61 @@
+
+CREATE INDEX "REPLICAS_PATH_IDX" ON replicas (path);
+
+CREATE INDEX "UPDATED_DIDS_SCOPERULENAME_IDX" ON updated_dids (scope, rule_evaluation_action, name);
+
+DROP TABLE account_limits;
+
+CREATE TABLE account_limits (
+    account VARCHAR2(25 CHAR),
+    rse_id RAW(16),
+    bytes NUMBER(19),
+    updated_at DATE,
+    created_at DATE
+);
+
+
+ALTER TABLE account_limits ADD CONSTRAINT "ACCOUNT_LIMITS_PK" PRIMARY KEY (account, rse_id);
+
+
+ALTER TABLE account_limits ADD CONSTRAINT "ACCOUNT_LIMITS_created_nn" CHECK (created_at is not null);
+
+
+ALTER TABLE account_limits ADD CONSTRAINT "ACCOUNT_LIMITS_updated_nn" CHECK (updated_at is not null);
+
+
+ALTER TABLE account_limits ADD CONSTRAINT "ACCOUNT_LIMITS_ACCOUNT_FK" FOREIGN KEY(a, c, o, u, n, t) REFERENCES accounts (a, c, o, u, n, t);
+
+
+ALTER TABLE account_limits ADD CONSTRAINT "ACCOUNT_LIMITS_RSE_ID_FK" FOREIGN KEY(r, s, e, "_", i, d) REFERENCES rses (r, s, e, "_", i, d);
+
+
+CREATE TABLE configs (
+    section VARCHAR2(128 CHAR),
+    "option" VARCHAR2(128 CHAR),
+    value VARCHAR2(4000 CHAR),
+    updated_at DATE,
+    created_at DATE
+);
+
+
+ALTER TABLE configs ADD CONSTRAINT configs_pk PRIMARY KEY (section, "option");
+
+
+ALTER TABLE configs ADD CONSTRAINT configs_created_nn CHECK (created_at is not null);
+
+
+ALTER TABLE configs ADD CONSTRAINT configs_updated_nn CHECK (updated_at is not null);
+
+CREATE TABLE configs_history (
+    section VARCHAR2(128 CHAR),
+    "option" VARCHAR2(128 CHAR),
+    value VARCHAR2(4000 CHAR),
+    updated_at DATE,
+    created_at DATE
+);
+
+
+ALTER TABLE configs_history ADD CONSTRAINT configs_history_pk PRIMARY KEY (section, "option", updated_at);
+
+
+INSERT INTO alembic_version (version_num) VALUES ('2b8e7bcb4783');

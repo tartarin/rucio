@@ -1,0 +1,14 @@
+# This file must be used with "source bin/postactivate" *from bash*
+# you cannot run it directly
+
+eval "$(register-python-argcomplete rucio)"
+eval "$(register-python-argcomplete rucio-admin)"
+eval "$(register-python-argcomplete rucio-reaper)"
+eval "$(register-python-argcomplete rucio-conveyor-consumer)"
+eval "$(register-python-argcomplete rucio-conveyor-submitter)"
+eval "$(register-python-argcomplete rucio-judge-eval)"
+eval "$(register-python-argcomplete rucio-transmogrifier)"
+eval "$(register-python-argcomplete rucio-admin)"
+eval "$(register-python-argcomplete rucio-conveyor-poller)"
+eval "$(register-python-argcomplete rucio-judge-clean)"
+eval "$(register-python-argcomplete rucio-undertaker)"

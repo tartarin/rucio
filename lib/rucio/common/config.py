@@ -121,8 +121,3 @@ for configfile in __configfiles:
     __has_config = __config.read(configfile) == [configfile]
     if __has_config:
         break
-
-if not __has_config:
-    raise Exception('Could not load rucio configuration file rucio.cfg. \
-Rucio looks in the following directories for a configuration file, in order:\
-\n\t${RUCIO_HOME}/etc/rucio.cfg\n\t/opt/rucio/etc/rucio.cfg\n\t${VIRTUAL_ENV}/etc/rucio.cfg')

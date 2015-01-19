@@ -150,51 +150,6 @@ without issue::
     >>> import rucio
     >>>
 
-Registering and using the Package Index
-=======================================
-
-The pip server is running on http://voatlasrucio-pip.cern.ch/.
-
-To upload files you need to create a :file:`~/.pypirc` with::
-
-    [distutils]
-    index-servers = voatlasrucio-pip
-
-    [atlas-pip]
-    username: <username>
-    password: <password>
-    repository: https://voatlasrucio-pip.cern.ch/
-
-- *username*, which is the registered username on the PyPI server.
-- *password*, that will be used to authenticate. If omitted the user
-    will be prompt to type it when needed.
-
-Upload a package with::
-
-	$ python setup.py register -r voatlasrucio-pip sdist upload -r voatlasrucio-pip
-
-or::
-
-	$ python setup.py register -r https://voatlasrucio-pip.cern.ch/ sdist upload -r https://voatlasrucio-pip.cern.ch/
-
-
-To install packages::
-
-	$ pip install rucio -i https://voatlasrucio-pip.cern.ch/simple
-
-it will ask for the password and login.
-
-To avoid this, you need to create a :file:`~/.pip/pip.conf` with::
-
-    [install]
-    index-url = https://<username>:<password>@voatlasrucio-pip.cern.ch/simple
-    extra-index-url = http://pypi.python.org/simple
-
-- *username*, which is the registered username on the PyPI server.
-- *password*, that will be used to authenticate. If omitted the user
-    will be prompt to type it when needed.
-
-
 Configuring Rucio
 ==================
 
